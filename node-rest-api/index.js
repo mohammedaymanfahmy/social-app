@@ -4,8 +4,12 @@ const dotenv = require("dotenv");
 const helmet = require("helmet");
 const morgan = require("morgan");
 const mongoose = require("mongoose");
+
+//ROUTERSS
 const userRoute = require("./routers/users");
 const authRoute = require("./routers/auth");
+const postRoute = require("./routers/posts");
+
 dotenv.config();
 
 //Connect to MongoDB
@@ -25,6 +29,7 @@ app.use("/api/users", userRoute);
 
 app.use("/api/auth", authRoute);
 
+app.use("/api/posts", postRoute);
 //run Server
 app.listen(8800, () => {
   console.log("Server Is Running...");
